@@ -1,24 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import {Button, Container, Input, InputGroup, InputGroupAddon} from "reactstrap";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Container>
+        <InputGroup>
+          <Input placeholder="Название дела"/>
+          <InputGroupAddon addonType={"append"}>
+            <Button style={{
+              backgroundColor: "#3a62fb"
+            }}>+</Button>
+          </InputGroupAddon>
+        </InputGroup>
+        <div style={{
+          marginTop: "10px"
+        }}>
+          <div style={{
+            display: "grid",
+            justifyItems: "center",
+            alignItems: "center",
+            gridTemplateColumns: "50px auto",
+            width: "100%",
+            minHeight: "80px",
+            borderBottom: "1px solid black",
+            borderTop: "1px solid black"
+          }}>
+            <div className={"round"} style={{justifySelf: "flex-start"}}>
+              <input id="checkbox" type={"checkbox"}/>
+              <label htmlFor="checkbox"></label>
+            </div>
+            <div >Hello</div>
+          </div>
+          <div style={{
+            display: "grid",
+            justifyItems: "center",
+            alignItems: "center",
+            gridTemplateColumns: "50px auto",
+            width: "100%",
+            minHeight: "80px",
+            borderBottom: "1px solid black",
+            borderTop: "1px solid black"
+          }}>
+            <div className={"round"} style={{justifySelf: "flex-start"}}>
+              <input id="checkbox1" type={"checkbox"}/>
+              <label htmlFor="checkbox1"></label>
+            </div>
+            <div >Hello</div>
+          </div>
+        </div>
+      </Container>
   );
 }
 
