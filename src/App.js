@@ -86,7 +86,10 @@ function App() {
                                     name: editValue
                                 } : k));
                                 setEdit(null);
-                            }}/> : <EditButton edit={() => setEdit(t.name)}/>
+                            }}/> : <EditButton edit={() => {
+                                setEdit(t.name);
+                                setEditValue(t.name);
+                            }}/>
                         }
                         <Button close onClick={() => {
                             if (t.name === edit) {
@@ -112,8 +115,21 @@ const EditButton = ({edit}) => {
                  width={"40%"}
                  height={"40%"}
                  viewBox="0 0 348.882 348.882">
-        <g opacity={hover ? "1" : "0.7"} onClick={() => edit()} onMouseEnter={() => setHover(true)}
-           onMouseLeave={() => setHover(false)}>
+        <g opacity={hover ? "1" : "0.7"} >
+            <foreignObject x="0px" y="0px"
+                           width={"100%"}
+                           height={"100%"} >
+                <div
+                    onClick={() => edit()}
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
+                    style={{
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                        cursor: "pointer"
+                }}></div>
+            </foreignObject>
             <path d="M333.988,11.758l-0.42-0.383C325.538,4.04,315.129,0,304.258,0c-12.187,0-23.888,5.159-32.104,14.153L116.803,184.231
 		c-1.416,1.55-2.49,3.379-3.154,5.37l-18.267,54.762c-2.112,6.331-1.052,13.333,2.835,18.729c3.918,5.438,10.23,8.685,16.886,8.685
 		c0,0,0.001,0,0.001,0c2.879,0,5.693-0.592,8.362-1.76l52.89-23.138c1.923-0.841,3.648-2.076,5.063-3.626L336.771,73.176
@@ -132,8 +148,21 @@ const ApproveButton = ({approve}) => {
     const [hover, setHover] = useState(false);
 
     return (<svg id="Capa_2" height="40%" viewBox="0 0 512 512" width="40%" xmlns="http://www.w3.org/2000/svg">
-        <g opacity={hover ? "1" : "0.7"} onClick={() => approve()} onMouseEnter={() => setHover(true)}
-           onMouseLeave={() => setHover(false)}>
+        <g opacity={hover ? "1" : "0.7"} >
+            <foreignObject x="0px" y="0px"
+                           width={"100%"}
+                           height={"100%"} >
+                <div
+                    onClick={() => approve()}
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
+                    style={{
+                        position: "absolute",
+                        width: "100%",
+                        height: "100%",
+                        cursor: "pointer"
+                    }}></div>
+            </foreignObject>
             <path d="m450.585 68.552-252.065 252.065-137.105-137.104-61.415 61.415 198.52 198.52 313.48-313.48z"/>
         </g>
     </svg>)
